@@ -123,6 +123,7 @@ nav {
   display: flex;
   gap: 10px;
   margin-top: 30px;
+  justify-content: center;
 }
 
 .primary-button,
@@ -367,8 +368,13 @@ footer {
 
   .certificate-card {
     max-width: 440px;
+    margin: 0 auto;
+    width: 100%;
   }
-
+  .section-heading>p
+  {
+    margin: 20px auto 0;
+  }
   .concept-grid {
     grid-template-columns: repeat(2, 1fr);
   }
