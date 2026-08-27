@@ -175,7 +175,7 @@ nav {
   border-radius: 50%;
   display: grid;
   place-items: center;
-  margin: 20px 0;
+  margin: 20px auto;
   font-size: 38px;
   font-weight: 800;
 }
