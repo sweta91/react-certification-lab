@@ -487,6 +487,10 @@ function SkillSelector() {
         <option>JavaScript</option>
         <option>HTML</option>
         <option>CSS</option>
+        <option>Angular</option>
+        <option>SCSS</option>
+        <option>Ant Blazor</option>
+        <option>Fluent UI</option>
       </select>
 
       <div className="selection-result">
