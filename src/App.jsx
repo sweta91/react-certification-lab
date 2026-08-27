@@ -86,8 +86,7 @@ function App() {
           </h1>
 
           <p className="hero-text">
-            A small interactive project demonstrating the core React concepts
-            covered during my certification journey.
+           A hands-on React project created to explore, experiment with, and demonstrate core React concepts through interactive examples.
           </p>
 
           <div className="hero-actions">
