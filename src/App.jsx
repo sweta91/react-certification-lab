@@ -146,87 +146,223 @@ function App() {
         </div>
       </section>
 
-      <section id="demo" className="section demo-section">
-        <div className="section-heading">
-          <div>
-            <p className="eyebrow">INTERACTIVE DEMO</p>
-            <h2>React in action</h2>
-          </div>
-        </div>
+     <section id="demo" className="section demo-section">
+  <div className="section-heading">
+    <div>
+      <p className="eyebrow">INTERACTIVE DEMO</p>
+      <h2>React in action</h2>
+    </div>
 
-        <div className="demo-grid">
-          <div className="demo-card">
-            <span className="demo-label">useState</span>
-            <h3>Counter</h3>
+    <p>
+      Small interactive examples demonstrating the React concepts practiced
+      during my certification journey.
+    </p>
+  </div>
 
-            <div className="counter">
-              <button onClick={() => setCount(count - 1)}>−</button>
-              <strong>{count}</strong>
-              <button onClick={() => setCount(count + 1)}>+</button>
-            </div>
+  <div className="demo-grid">
 
-            <button
-              className="text-button"
-              onClick={() => setCount(0)}
-            >
-              Reset counter
-            </button>
-          </div>
+    {/* 01 — useState */}
+    <div className="demo-card">
+      <span className="demo-label">01 • useState</span>
 
-          <div className="demo-card">
-            <span className="demo-label">Conditional Rendering</span>
-            <h3>Toggle message</h3>
+      <h3>Counter</h3>
 
-            <button
-              className="primary-button small"
-              onClick={() => setShowMessage(!showMessage)}
-            >
-              {showMessage ? "Hide message" : "Show message"}
-            </button>
+      <p className="demo-description">
+        State updates trigger a re-render of the component.
+      </p>
 
-            {showMessage && (
-              <div className="success-message">
-                React state changed the UI. ✓
-              </div>
-            )}
-          </div>
+      <div className="counter">
+        <button onClick={() => setCount(count - 1)}>
+          −
+        </button>
 
-          <div className="demo-card">
-            <span className="demo-label">Controlled Form</span>
-            <h3>Say hello</h3>
+        <strong>{count}</strong>
 
-            <form onSubmit={handleSubmit}>
-              <input
-                value={name}
-                onChange={(event) => setName(event.target.value)}
-                placeholder="Enter your name"
-              />
+        <button onClick={() => setCount(count + 1)}>
+          +
+        </button>
+      </div>
 
-              <button className="primary-button small">
-                Submit
-              </button>
-            </form>
+      <button
+        className="text-button"
+        onClick={() => setCount(0)}
+      >
+        Reset counter
+      </button>
+    </div>
 
-            {submittedName && (
-              <div className="success-message">
-                Hello, {submittedName}! 👋
-              </div>
-            )}
-          </div>
 
-          <div className="demo-card">
-            <span className="demo-label">useEffect</span>
-            <h3>Component timer</h3>
+    {/* 02 — Conditional Rendering */}
+    <div className="demo-card">
+      <span className="demo-label">02 • Conditional Rendering</span>
 
-            <strong className="timer">{seconds}s</strong>
+      <h3>Login state</h3>
 
-            <p>
-              This counter updates through a useEffect interval while the
-              component is mounted.
-            </p>
-          </div>
-        </div>
-      </section>
+      <p className="demo-description">
+        React can render different UI depending on state.
+      </p>
+
+      <div className="status-box">
+        {showMessage ? (
+          <>
+            <span className="status-dot online"></span>
+            <strong>Welcome back, Sweta!</strong>
+          </>
+        ) : (
+          <>
+            <span className="status-dot"></span>
+            <strong>You are logged out.</strong>
+          </>
+        )}
+      </div>
+
+      <button
+        className="primary-button small"
+        onClick={() => setShowMessage(!showMessage)}
+      >
+        {showMessage ? "Log out" : "Log in"}
+      </button>
+    </div>
+
+
+    {/* 03 — Controlled Form */}
+    <div className="demo-card">
+      <span className="demo-label">03 • Controlled Form</span>
+
+      <h3>Live form</h3>
+
+      <p className="demo-description">
+        Input values are controlled by React state.
+      </p>
+
+      <input
+        className="demo-input"
+        value={name}
+        onChange={(event) => setName(event.target.value)}
+        placeholder="Type your name..."
+      />
+
+      <div className="live-preview">
+        {name
+          ? `Hello, ${name}! 👋`
+          : "Start typing above..."}
+      </div>
+    </div>
+
+
+    {/* 04 — Lists & Keys */}
+    <div className="demo-card">
+      <span className="demo-label">04 • Lists & Keys</span>
+
+      <h3>React skills</h3>
+
+      <p className="demo-description">
+        Dynamic data can be rendered using map().
+      </p>
+
+      <ul className="skills-list">
+        {[
+          "Components",
+          "Props",
+          "State",
+          "Hooks"
+        ].map((skill, index) => (
+          <li key={skill}>
+            <span>0{index + 1}</span>
+            {skill}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+
+    {/* 05 — Props */}
+    <div className="demo-card">
+      <span className="demo-label">05 • Props</span>
+
+      <h3>Parent → Child</h3>
+
+      <p className="demo-description">
+        Props allow components to receive data from their parent.
+      </p>
+
+      <ProfileCard
+        name="Sweta"
+        role="React Developer"
+        skill="React + JavaScript"
+      />
+    </div>
+
+
+    {/* 06 — useEffect */}
+    <div className="demo-card">
+      <span className="demo-label">06 • useEffect</span>
+
+      <h3>Component timer</h3>
+
+      <p className="demo-description">
+        useEffect can run side effects when a component is mounted.
+      </p>
+
+      <strong className="timer">
+        {seconds}s
+      </strong>
+
+      <small>
+        Timer running automatically
+      </small>
+    </div>
+
+
+    {/* 07 — Array State */}
+    <div className="demo-card">
+      <span className="demo-label">07 • Array State</span>
+
+      <h3>Shopping list</h3>
+
+      <p className="demo-description">
+        React state can contain arrays and be updated immutably.
+      </p>
+
+      <ShoppingList />
+    </div>
+
+
+    {/* 08 — Toggle */}
+    <div className="demo-card">
+      <span className="demo-label">08 • Event Handling</span>
+
+      <h3>Like button</h3>
+
+      <p className="demo-description">
+        Events allow React components to respond to user actions.
+      </p>
+
+      <LikeButton />
+    </div>
+
+
+    {/* 09 — Select */}
+    <div className="demo-card">
+      <span className="demo-label">09 • Form Controls</span>
+
+      <h3>Choose a skill</h3>
+
+      <SkillSelector />
+    </div>
+
+
+    {/* 10 — Progress */}
+    <div className="demo-card">
+      <span className="demo-label">10 • Derived State</span>
+
+      <h3>Learning progress</h3>
+
+      <ProgressDemo />
+    </div>
+
+  </div>
+</section>
 
       <footer>
         <span>React Certification Lab</span>
@@ -236,4 +372,183 @@ function App() {
   );
 }
 
+
+function ProfileCard({ name, role, skill }) {
+  return (
+    <div className="profile-demo">
+      <div className="profile-avatar">
+        {name.charAt(0)}
+      </div>
+
+      <div>
+        <strong>{name}</strong>
+        <span>{role}</span>
+        <small>{skill}</small>
+      </div>
+    </div>
+  );
+}
+function ShoppingList() {
+  const [items, setItems] = useState([
+    "React",
+    "JavaScript"
+  ]);
+
+  const [newItem, setNewItem] = useState("");
+
+  function addItem(event) {
+    event.preventDefault();
+
+    if (!newItem.trim()) return;
+
+    setItems([
+      ...items,
+      newItem.trim()
+    ]);
+
+    setNewItem("");
+  }
+
+  function removeItem(indexToRemove) {
+    setItems(
+      items.filter(
+        (_, index) => index !== indexToRemove
+      )
+    );
+  }
+
+  return (
+    <div>
+      <form
+        className="mini-form"
+        onSubmit={addItem}
+      >
+        <input
+          value={newItem}
+          onChange={(event) =>
+            setNewItem(event.target.value)
+          }
+          placeholder="Add item..."
+        />
+
+        <button type="submit">
+          +
+        </button>
+      </form>
+
+      <ul className="mini-list">
+        {items.map((item, index) => (
+          <li key={`${item}-${index}`}>
+            <span>{item}</span>
+
+            <button
+              onClick={() => removeItem(index)}
+              aria-label={`Remove ${item}`}
+            >
+              ×
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function LikeButton() {
+  const [liked, setLiked] = useState(false);
+
+  return (
+    <button
+      className={liked ? "like-button liked" : "like-button"}
+      onClick={() => setLiked(!liked)}
+    >
+      <span>
+        {liked ? "♥" : "♡"}
+      </span>
+
+      {liked ? "Liked" : "Like this project"}
+    </button>
+  );
+}
+
+function SkillSelector() {
+  const [skill, setSkill] = useState("React");
+
+  return (
+    <div>
+      <select
+        className="demo-select"
+        value={skill}
+        onChange={(event) =>
+          setSkill(event.target.value)
+        }
+      >
+        <option>React</option>
+        <option>JavaScript</option>
+        <option>HTML</option>
+        <option>CSS</option>
+      </select>
+
+      <div className="selection-result">
+        Currently learning:
+        <strong>{skill}</strong>
+      </div>
+    </div>
+  );
+}
+
+function ProgressDemo() {
+  const [completed, setCompleted] = useState(3);
+
+  const total = 5;
+
+  const percentage = Math.round(
+    (completed / total) * 100
+  );
+
+  return (
+    <div>
+      <div className="progress-header">
+        <span>
+          {completed} / {total} concepts
+        </span>
+
+        <strong>
+          {percentage}%
+        </strong>
+      </div>
+
+      <div className="progress-track">
+        <div
+          className="progress-bar"
+          style={{
+            width: `${percentage}%`
+          }}
+        />
+      </div>
+
+      <div className="progress-actions">
+        <button
+          onClick={() =>
+            setCompleted(
+              Math.max(0, completed - 1)
+            )
+          }
+        >
+          −
+        </button>
+
+        <button
+          onClick={() =>
+            setCompleted(
+              Math.min(total, completed + 1)
+            )
+          }
+        >
+          +
+        </button>
+      </div>
+    </div>
+  );
+}
 export default App;
