@@ -77,7 +77,7 @@ function App() {
 
       <section className="hero">
         <div className="hero-content">
-          <p className="eyebrow">REACT CERTIFICATION • 2026</p>
+          <p className="hero-title">REACT CERTIFICATION • 2026</p>
 
           <h1>
             Learning React.
