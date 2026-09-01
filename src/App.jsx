@@ -379,7 +379,7 @@ function ProfileCard({ name, role, skill }) {
         {name.charAt(0)}
       </div>
 
-      <div style="text-align:left;">
+      <div className="text-left">
         <strong>{name}</strong>
         <span>{role}</span>
         <small>{skill}</small>

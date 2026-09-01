@@ -417,7 +417,10 @@ footer {
     gap: 10px;
   }
 }
-
+.text-left
+{
+  text-align: left;
+}
 
 
 .demo-description {
